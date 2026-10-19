@@ -1,0 +1,1 @@
+{"name":"hyrule-waltz","version":"1.0.0","private":true,"type":"module","scripts":{"start":"node serve.mjs","preview":"node render.mjs --preview","render":"node render.mjs"},"dependencies":{"three":"0.180.0"},"devDependencies":{"playwright":"1.62.1"}}

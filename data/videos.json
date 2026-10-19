@@ -79,5 +79,49 @@
       "seeking": "passed",
       "exposure_compensation": "passed"
     }
+  },
+  {
+    "id": "003",
+    "slug": "hyrule-waltz",
+    "title": "旷野之舞 · Hyrule Waltz",
+    "category": "3d-animation",
+    "description": "36 秒林克与塞尔达华尔兹同人程序动画：黄昏石台、双人旋转、转身微笑与自然眨眼、原创三拍子配乐。角色造型与动作有简化，未达到任天堂原作级精度。",
+    "created": "2026-10-19",
+    "duration_seconds": 36,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "tech_tags": [
+      "Three.js",
+      "JavaScript",
+      "Skeletal IK",
+      "Python",
+      "Swift",
+      "AVAudioEngine",
+      "imagegen",
+      "Playwright",
+      "FFmpeg"
+    ],
+    "video": "videos/003-hyrule-waltz/output/hyrule-waltz-36s.mp4",
+    "poster": "videos/003-hyrule-waltz/output/poster.png",
+    "contact_sheet": "videos/003-hyrule-waltz/output/contact-sheet.png",
+    "preview": "videos/003-hyrule-waltz/preview.html",
+    "prompt": "prompts/003-hyrule-waltz.md",
+    "source": "videos/003-hyrule-waltz",
+    "reference": {
+      "zelda_model": "https://thestoff.itch.io/game-ready-zelda",
+      "sources": "videos/003-hyrule-waltz/sources.md"
+    },
+    "audio": "Original D-major waltz, 100 BPM, 3/4; macOS General MIDI piano, harp, flute, strings, cello",
+    "quality_note": "Fan animation experiment; simplified character styling and procedural motion, below Nintendo production fidelity",
+    "validation": {
+      "frames": 1080,
+      "report": "videos/003-hyrule-waltz/output/render-report.json",
+      "decode": "passed",
+      "browser_playback": "passed",
+      "seeking": "passed",
+      "max_shared_wrist_distance_m": 0.04197,
+      "facial_animation": "turn smile and nine skeletal eyelid blinks"
+    }
   }
 ]

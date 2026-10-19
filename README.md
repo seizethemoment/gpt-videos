@@ -2,9 +2,23 @@
 
 用 GPT / Codex 通过代码制作的视频作品集。每个作品保存成片、封面、提示词、动画源码和渲染方法，方便观看、修改与继续创作。
 
-当前收录 **2 个作品**：从一杯 Negroni，到相机里的光与时间。
+当前收录 **3 个作品**：从一杯 Negroni，到相机里的光与时间，再到林克与塞尔达的华尔兹。
 
 ## 作品
+
+### 003 · 旷野之舞 · Hyrule Waltz
+
+<a href="videos/003-hyrule-waltz/output/hyrule-waltz-36s.mp4"><img src="videos/003-hyrule-waltz/output/poster.png" alt="黄昏舞台上的林克与塞尔达华尔兹同人动画" width="720"></a>
+
+**[▶ 观看成片](videos/003-hyrule-waltz/output/hyrule-waltz-36s.mp4)** · [下载 MP4](https://raw.githubusercontent.com/seizethemoment/gpt-videos/main/videos/003-hyrule-waltz/output/hyrule-waltz-36s.mp4) · [提示词](prompts/003-hyrule-waltz.md) · [源码与制作说明](videos/003-hyrule-waltz/) · [素材来源](videos/003-hyrule-waltz/sources.md) · [关键帧](videos/003-hyrule-waltz/output/contact-sheet.png)
+
+| 分类 | 时长 | 画面 | 声音 | 日期 |
+| --- | --- | --- | --- | --- |
+| 三维角色 / 同人舞蹈 | 36 秒 · 30 fps | 1920 × 1080 · 黄昏遗迹 | 原创 3/4 华尔兹配乐 | 2026-10-19 |
+
+以《旷野之息》的角色与氛围为参考：邀舞、双人旋转、抬手转圈与收势，塞尔达在转身时微笑并自然眨眼。三维骨骼动画与绘画远景结合，配钢琴、竖琴、长笛和弦乐。这是同人程序动画实验，角色造型与动作细节有简化，未达到任天堂原作级精度。
+
+技术：`Three.js` · `Skeletal IK` · `JavaScript` · `Python` · `Swift / AVAudioEngine` · `imagegen` · `Playwright` · `FFmpeg`
 
 ### 002 · 光，如何成为照片
 
@@ -59,6 +73,7 @@ gpt-videos/
 ├── data/videos.json           # 结构化作品信息
 ├── prompts/                   # 每个作品的制作提示词
 └── videos/
+    ├── 003-hyrule-waltz/      # 林克与塞尔达华尔兹同人短片
     ├── 002-camera-physics/    # 摄影物理原理短片
     └── 001-negroni/
         ├── README.md          # 配方、时间轴、渲染步骤与来源
@@ -74,8 +89,8 @@ gpt-videos/
 
 ## 添加下一条视频
 
-1. 在 `videos/` 下创建递增编号的目录，例如 `003-your-title/`，保存源码、说明与成片。
-2. 将制作提示词保存到 `prompts/003-your-title.md`。
+1. 在 `videos/` 下创建递增编号的目录，例如 `004-your-title/`，保存源码、说明与成片。
+2. 将制作提示词保存到 `prompts/004-your-title.md`。
 3. 在 `data/videos.json` 追加作品信息，使用相对于仓库根目录的资源路径。
 4. 在本页增加封面、视频入口与作品规格，并更新作品数量。
 
