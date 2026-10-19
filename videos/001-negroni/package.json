@@ -1,0 +1,15 @@
+{
+  "name": "negroni-motion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A deterministic, illustrated 30-second Negroni recipe film.",
+  "type": "module",
+  "scripts": {
+    "start": "node serve.mjs",
+    "preview": "node render.mjs --preview",
+    "render": "node render.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

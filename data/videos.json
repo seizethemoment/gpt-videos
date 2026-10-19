@@ -1,0 +1,41 @@
+[
+  {
+    "id": "001",
+    "slug": "negroni",
+    "title": "NEGRONI · 三味等份，一杯经典",
+    "category": "explainer",
+    "description": "30 秒尼格罗尼调酒步骤动画，暖白纸张质感、珊瑚红插画、中文字幕、原创轻音乐与音效。",
+    "created": "2026-10-19",
+    "duration_seconds": 30,
+    "width": 1080,
+    "height": 1080,
+    "fps": 30,
+    "tech_tags": [
+      "Canvas 2D",
+      "JavaScript",
+      "Python",
+      "NumPy",
+      "Playwright",
+      "FFmpeg"
+    ],
+    "video": "videos/001-negroni/output/negroni-30s.mp4",
+    "poster": "videos/001-negroni/output/poster.png",
+    "contact_sheet": "videos/001-negroni/output/contact-sheet.png",
+    "offline_preview": "videos/001-negroni/negroni-offline.html",
+    "prompt": "prompts/001-negroni.md",
+    "source": "videos/001-negroni",
+    "reference": {
+      "collection": "https://github.com/yihui-dev/awesome-opus5-5-videos",
+      "example": "https://skillry.dev/ai-videos/opus-5-5/ror-fly-880547",
+      "original_post": "https://x.com/Ror_Fly/status/2102853258582880547",
+      "recipe": "https://iba-world.com/iba-cocktail/negroni/"
+    },
+    "audio": "Original procedural music and sound effects; no narration",
+    "validation": {
+      "frames": 900,
+      "decode": "passed",
+      "browser_playback": "passed",
+      "seeking": "passed"
+    }
+  }
+]

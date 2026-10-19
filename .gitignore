@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+.runtime/
+.venv/
+__pycache__/
+*.pyc
+*.zip
+*.log
+**/output/frame-*.png
+**/output/render-report.txt
+**/output/playback-check.json
