@@ -14,7 +14,7 @@ let browser;
 try{
   browser=await chromium.launch({headless:true,...(fs.existsSync(chrome)?{executablePath:chrome}:{}),args:['--allow-file-access-from-files','--hide-scrollbars']});
   const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1});const errors=[];page.on('pageerror',e=>errors.push(String(e)));
-  await page.goto(pathToFileURL(path.join(root,'index.html')).href+'?render=1');await page.evaluate(()=>document.fonts.ready);
+  await page.goto(pathToFileURL(path.join(root,'index.html')).href+'?render=1');await page.evaluate(async()=>{await document.fonts.ready;await window.ASSETS_READY;});
   const physics=await page.evaluate(()=>{
     const o=window.OPTICS;
     return {topProjectsBelowAxis:o.projectPinhole(430)>570,bottomProjectsAboveAxis:o.projectPinhole(710)<570,thinLensDistance:o.thinLensImageDistance(280,555),apertureRatio:o.apertureFluxRatio(2.8,8),film:window.FILM,exposure:(()=>{const e=window.EXPOSURE;return [0,4.8,8.4,12.4,18.4].map(t=>{const v=e.balanceState(t);return {time:t,brightness:e.outputBrightness(v,e.base),photons:e.lightCollected(v,e.base)};});})(),cases:Object.keys(window.EXPOSURE.cases).map(kind=>{const e=window.EXPOSURE,c=e.cases[kind];return {kind,brightness:e.outputBrightness(e.caseState(kind,14),c.base)};})};
@@ -33,7 +33,8 @@ try{
     const env={...process.env,PYTHONPATH:[path.join(root,'.runtime'),process.env.PYTHONPATH].filter(Boolean).join(path.delimiter)};
     const ffmpeg=process.env.FFMPEG_PATH||spawnSync('python3',['-c','import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())'],{env,encoding:'utf8'}).stdout.trim();
     if(!ffmpeg)throw new Error('Set FFMPEG_PATH or install imageio-ffmpeg.');
-    const movie=path.join(out,spec.movie);
+    const target=path.join(out,spec.movie);fs.mkdirSync(path.join(root,'.runtime'),{recursive:true});
+    const movie=path.join(root,'.runtime','rendering-'+spec.movie);
     const args=['-y','-hide_banner','-loglevel','warning','-f','image2pipe','-vcodec','mjpeg','-framerate',String(fps),'-i','pipe:0','-i',path.join(out,'soundtrack.m4a'),'-map','0:v:0','-map','1:a:0','-vf','scale=in_color_matrix=bt601:out_color_matrix=bt709:in_range=full:out_range=limited,format=yuv420p','-c:v','libx264','-preset','fast','-crf','18','-pix_fmt','yuv420p','-color_range','tv','-colorspace','bt709','-color_primaries','bt709','-color_trc','bt709','-r',String(fps),'-c:a','copy','-t',String(duration),'-movflags','+faststart','-metadata','title=光，如何成为照片 · 曝光三角',movie];
     const encoder=spawn(ffmpeg,args,{stdio:['pipe','ignore','pipe']});let log='',pipeError;encoder.stderr.on('data',d=>log+=d.toString());encoder.stdin.on('error',e=>pipeError=e);
     const completion=new Promise((resolve,reject)=>{encoder.on('error',reject);encoder.on('close',code=>code===0?resolve():reject(new Error('FFmpeg: '+log)));});completion.catch(()=>{});
@@ -46,7 +47,8 @@ try{
     encoder.stdin.end();await completion;if(errors.length)throw new Error(errors.join('\n'));
     const check=spawnSync(ffmpeg,['-hide_banner','-i',movie,'-map','0:v:0','-map','0:a:0','-f','null','-'],{encoding:'utf8'});
     if(check.status!==0)throw new Error(check.stderr);
+    fs.renameSync(movie,target);
     fs.writeFileSync(path.join(out,'render-report.txt'),`${frames} deterministic frames\n${width} × ${height} · ${fps} fps · ${duration} seconds\nOptics checks: ${JSON.stringify(physics)}\nBrowser errors: ${errors.length}\n${check.stderr}`);
-    console.log('Movie exported and fully decoded:',movie);console.log(check.stderr.split('\n').filter(x=>/Duration|Stream|frame=/.test(x)).join('\n'));
+    console.log('Movie exported and fully decoded:',target);console.log(check.stderr.split('\n').filter(x=>/Duration|Stream|frame=/.test(x)).join('\n'));
   }
 }finally{if(browser)await browser.close();}

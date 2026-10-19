@@ -43,7 +43,7 @@
     "slug": "camera-physics",
     "title": "光，如何成为照片",
     "category": "explainer",
-    "description": "150 秒中文摄影动画：成像原理、曝光三角联动，以及人像、运动与夜景。核心术语中英文同屏。",
+    "description": "150 秒中文摄影动画：用火柴人说明倒立成像与镜头对焦，展示曝光三角联动，以及人像、运动与夜景。核心术语中英文同屏。",
     "created": "2026-10-19",
     "duration_seconds": 150,
     "width": 1920,
@@ -56,7 +56,8 @@
       "NumPy",
       "Playwright",
       "FFmpeg",
-      "edge-tts"
+      "edge-tts",
+      "image_gen"
     ],
     "video": "videos/002-camera-physics/output/camera-physics-exposure-triangle.mp4",
     "poster": "videos/002-camera-physics/output/poster.png",

@@ -43,7 +43,7 @@
     track('THE OPTICS SERIES',100,65,15,3.2,C.muted);track('GPT VIDEOS / 002',1820,65,15,2.7,C.muted,'right');line(100,95,1820,95,C.line,1);
     if(i===0)return;
     const a=s(t,.10,.8);g.save();g.globalAlpha*=a;g.translate(0,14*(1-a));
-    text(chapters[i].title,110,183,53,C.ink,CN,'500');track(chapters[i].en,114,229,15,3.6,C.gold);text(String(i).padStart(2,'0'),1816,182,58,C.line,SERIF,'400','right');g.restore();
+    text(chapters[i].title,110,183,53,C.ink,CN,'500');track(i===1?(t<6?'01 · PINHOLE IMAGING / INVERTED IMAGE':'02 · LENS IMAGING / FOCUS'):chapters[i].en,114,229,15,3.6,C.gold);text(String(i).padStart(2,'0'),1816,182,58,C.line,SERIF,'400','right');g.restore();
   }
   function iris(x,y,R,hole,t=0){
     g.save();g.translate(x,y);circle(0,0,R,'#14232c','#5b727a',2);
@@ -85,6 +85,21 @@
     const a2=s(t,2,3);g.save();g.globalAlpha*=a2;line(1516,743,1640,828,C.gold+'80',1);line(1640,828,1788,828,C.gold+'80',1);text('从光路，看懂相机。',1788,866,21,C.muted,CN,'400','right');g.restore();
   }
 
+  function stickPerson(x,top,height=280,color=C.ink){
+    g.save();g.translate(x,top);g.scale(height/280,height/280);
+    circle(0,32,32,null,color,8);
+    line(0,64,0,171,color,9);
+    line(0,95,-61,151,color,9);line(0,95,61,151,color,9);
+    line(0,171,-50,280,color,9);line(0,171,50,280,color,9);
+    g.restore();
+  }
+  function focusThumbnail(offset,x,y,w,h){
+    rect(x,y,w,h,13,'#112a34','#668f9570');
+    g.save();g.beginPath();g.roundRect(x,y,w,h,13);g.clip();
+    g.translate(x+w/2,y+h/2);g.scale(-.43,-.43);g.filter=`blur(${offset/18}px)`;
+    stickPerson(0,-140,280,C.gold);g.filter='none';g.restore();
+    line(x+w/2-13,y+h/2,x+w/2+13,y+h/2,C.cyan+'55',1);
+  }
   function projectPinhole(oy,ox=340,hx=850,hy=570,sx=1450){return hy+(hy-oy)*(sx-hx)/(hx-ox);}
   function pinhole(t){
     background();const a=s(t,.2,1.3);g.save();g.globalAlpha*=a;
@@ -92,15 +107,19 @@
     line(165,570,1737,570,'#64818d44',1,[7,9]);track('OPTICAL AXIS',178,596,11,2,'#68848d');
     line(850,333,850,560,'#a0b8bc',11);line(850,580,850,806,'#a0b8bc',11);
     circle(850,570,13,null,C.gold,1);glow(850,570,42,C.gold,.14);
-    arrow(340,710,430,'#e0eae4',13);dot(340,430,C.gold,7);dot(340,710,C.cyan,7);
-    text('物体 Object',340,803,25,C.ink,CN,'400','center');text('遮光暗盒 / Camera Obscura',1168,862,22,C.muted,CN,'400','center');text('小孔 Pinhole',850,306,24,C.gold,CN,'500','center');text('成像面 Image Plane',1450,306,24,C.cyan,CN,'500','center');
+    stickPerson(340,430,280);dot(340,430,C.gold,7);dot(390,710,C.cyan,7);
+    text('火柴人 Subject',340,803,25,C.ink,CN,'400','center');text('遮光暗盒 / Camera Obscura',1168,862,22,C.muted,CN,'400','center');text('小孔 Pinhole',850,306,24,C.gold,CN,'500','center');text('成像面 Image Plane',1450,306,24,C.cyan,CN,'500','center');
     for(const end of [370,450,505,650,760])line(340,430,850,end,C.gold+'1b',1);
-    const topY=projectPinhole(430),botY=projectPinhole(710);
+    const topY=projectPinhole(430),botY=projectPinhole(710,390);
     const ra=s(t,1.3,4);ray([[340,430],[850,570],[1450,topY]],C.gold,t,ra,2.6);
-    const rb=s(t,5.0,7.5);ray([[340,710],[850,570],[1450,botY]],C.cyan,t+.7,rb,2.6);
-    g.save();g.globalAlpha*=s(t,7,9);arrow(1450,botY,topY,'#c6d6d3',11);dot(1450,topY,C.gold,7);dot(1450,botY,C.cyan,7);g.restore();
-    g.save();g.globalAlpha*=s(t,8,10);badge('上下倒立',1630,460,C.gold);arrow(1711,554,687,C.ink,9);dot(1711,554,C.cyan,5);dot(1711,687,C.gold,5);text('成像面正视示意',1712,750,18,C.muted,CN,'400','center');g.restore();
-    text('光在均匀介质中沿直线传播；光路穿孔后上下交叉。',110,892,21,C.muted);g.restore();
+    const rb=s(t,5.0,7.5);ray([[390,710],[850,570],[1450,botY]],C.cyan,t+.7,rb,2.6);
+    g.save();g.globalAlpha*=s(t,7,9);line(1450,botY,1450,topY,'#c6d6d370',7);dot(1450,topY,C.gold,7);dot(1450,botY,C.cyan,7);g.restore();
+    g.save();g.globalAlpha*=s(t,7,9);
+    rect(1595,392,230,405,18,'#10232ce6','#42616a');
+    text('上下倒立',1710,433,24,C.gold,CN,'500','center');text('Inverted Image',1710,464,18,C.muted,SERIF,'400','center');
+    g.save();g.translate(1710,601);g.scale(-.66,-.66);stickPerson(0,-140,280);dot(0,-140,C.gold,7);dot(50,140,C.cyan,7);g.restore();
+    text('成像面正视示意',1710,758,18,C.muted,CN,'400','center');g.restore();
+    text('① 小孔成像 / Pinhole Imaging：光路穿孔后上下交叉，形成倒立像。',110,892,21,C.muted);g.restore();
   }
 
   // Original still-life illustration, rendered into reusable comparison layers.
@@ -137,15 +156,15 @@
   function lens(t){
     background();const lx=875,cy=562,ox=320,oy=414,u=lx-ox,f=280,v=f*u/(u-f),ix=lx+v,iy=cy-(oy-cy)*v/u;
     const offset=112*(1-s(t,5.5,10));const sensor=ix+offset;
-    line(130,cy,1750,cy,'#708d964b',1,[7,9]);thinLens(lx,cy,205);dot(ox,oy,C.gold,7);text('同一物点',280,373,23,C.gold);text('镜头 / Lens',lx,292,24,C.cyan,CN,'500','center');
+    line(130,cy,1750,cy,'#708d964b',1,[7,9]);thinLens(lx,cy,205);stickPerson(ox,oy,280);dot(ox,oy,C.gold,7);text('头顶的同一物点 / One Point',205,370,21,C.gold);text('火柴人 Subject',ox,800,23,C.ink,CN,'400','center');text('镜头 / Lens',lx,292,24,C.cyan,CN,'500','center');
     const ys=[389,455,562,660,736];
     ys.forEach((y,j)=>{const ey=iy+(iy-y)*(sensor-ix)/(ix-lx);ray([[ox,oy],[lx,y],[sensor,ey]],C.gold,t+j*.2,s(t,.8,3.5),j===2?2.3:1.65);});
     circle(lx+f,cy,4,C.cyan);text('F',lx+f,cy-22,24,C.cyan,SERIF);dimension(lx,lx+f,812,'焦距 Focal Length · f',C.cyan+'b0');
     rect(sensor-5,336,10,461,4,'#587984','#a3d9da',1.5);text('感光面 / Sensor',sensor,305,23,C.cyan,CN,'400','center');dot(ix,iy,C.gold,5);
     const spot=offset/(ix-lx)*(ys[4]-ys[0])/2;g.save();g.globalAlpha*=.6;g.beginPath();g.ellipse(sensor,iy+offset*(iy-cy)/(ix-lx),Math.max(3,spot*.14),Math.max(4,spot),0,0,tau);g.fillStyle=C.gold;g.fill();g.restore();
-    g.save();g.globalAlpha*=s(t,3.8,5);picture('focus'+Math.min(10,Math.round(offset/11.2)),1590,395,250,170,13);text(offset<5?'合焦：光落在同一位置':'离焦：光尚未落在同一位置',1715,608,18,offset<5?C.cyan:C.muted,CN,'400','center');g.restore();
+    g.save();g.globalAlpha*=s(t,3.8,5);focusThumbnail(offset,1590,395,250,170);text(offset<5?'合焦 / In Focus':'离焦 / Out of Focus',1715,608,20,offset<5?C.cyan:C.muted,CN,'400','center');g.restore();
     text('1 / f  =  1 / u  +  1 / v',1600,758,30,C.gold,SERIF,'400','center');
-    text('对焦示意：移动感光面观察焦点；实际相机通常移动镜组完成对焦。',110,864,20,C.muted);text('采用近轴薄透镜模型；真实摄影镜头由多片镜组构成。',110,897,18,C.muted);
+    text('② 镜头对焦 / Focus：让同一物点的光，会聚在感光面上。',110,864,20,C.muted);text('图中移动感光面观察焦点；实际相机通常移动镜组。采用近轴薄透镜模型。',110,897,18,C.muted);
   }
 
   // Remaining chapters and the player are defined below.
@@ -268,6 +287,7 @@
     for(let i=0;i<12;i++){const x=25+i*69,y=68+42*Math.sin(i/11*Math.PI);const q=c.createRadialGradient(x,y,0,x,y,33);q.addColorStop(0,'#ffe2accc');q.addColorStop(.22,'#e6bf7c88');q.addColorStop(1,'#d8b27200');c.fillStyle=q;c.fillRect(x-34,y-34,68,68);c.fillStyle='#ffe4b7';c.beginPath();c.arc(x,y,5,0,tau);c.fill();}
     c.fillStyle='#b9916130';for(let j=0;j<5;j++)c.fillRect(575,180+j*43,150,2);
   }
+  const portraitWoman=new Image();portraitWoman.src='assets/portrait-woman.png';window.ASSETS_READY=portraitWoman.decode();
   const portraitDepth=[];
   for(let i=0;i<=12;i++){const c=document.createElement('canvas');c.width=PW;c.height=PH;const q=c.getContext('2d');q.filter=`blur(${i*1.2}px)`;q.drawImage(portraitBack,-15,-15,830,490);portraitDepth.push(c);}
   const grain=document.createElement('canvas');grain.width=400;grain.height=230;
@@ -275,18 +295,10 @@
   for(let i=0;i<=12;i++)makeStill('depth'+i,0,0,i*1.2);
   function drawPortrait(v,t){
     b.drawImage(portraitDepth[Math.round(clamp((8-v.N)/6)*12)],0,0);
-    // Soft edge light, coat, neck, head and hair form a deliberate poster study.
-    const coat=b.createLinearGradient(200,300,560,460);coat.addColorStop(0,'#d2b893');coat.addColorStop(.35,'#69736a');coat.addColorStop(1,'#263d3f');
-    b.fillStyle=coat;b.beginPath();b.moveTo(181,460);b.bezierCurveTo(191,351,285,332,318,326);b.lineTo(449,326);b.bezierCurveTo(520,342,578,386,588,460);b.fill();
-    const skin=b.createLinearGradient(290,150,448,322);skin.addColorStop(0,'#f2d2ad');skin.addColorStop(.5,'#c89877');skin.addColorStop(1,'#8e6557');
-    b.fillStyle=skin;b.beginPath();b.moveTo(336,281);b.lineTo(332,341);b.quadraticCurveTo(381,385,427,342);b.lineTo(420,275);b.fill();
-    bellipse(375,207,104,137,'#1b252b',-.06);bellipse(388,227,77,110,skin,.06);bellipse(313,232,15,22,'#bd8b70');
-    b.fillStyle='#20282b';b.beginPath();b.moveTo(294,224);b.bezierCurveTo(260,129,341,70,408,85);b.bezierCurveTo(485,97,500,151,472,225);b.lineTo(449,188);b.quadraticCurveTo(407,200,348,151);b.quadraticCurveTo(312,182,309,243);b.fill();
-    b.strokeStyle='#5a5146';b.lineWidth=2;for(let i=0;i<5;i++){b.beginPath();b.moveTo(306+i*13,138-i*5);b.quadraticCurveTo(376,78+i*9,449,139+i*8);b.stroke();}
-    bline(346,222,369,220,'#473b37',3);bline(410,220,432,221,'#473b37',3);bellipse(360,226,4,5,'#14262b');bellipse(419,226,4,5,'#14262b');
-    bline(387,230,381,259,'#a67562',2);bline(381,259,394,262,'#a67562',2);bline(367,284,403,282,'#8e5f55',2);bellipse(352,250,14,7,'#d9a38344');
-    bline(332,343,309,410,'#e7d2ac99',2);bline(426,343,449,413,'#e7d2ac88',2);bline(378,377,378,458,'#a2b4a13d',2);
-    const x=414,y=226; b.strokeStyle='#b7e8d9b0';b.lineWidth=1;for(const [dx,dy]of[[-1,-1],[1,-1],[-1,1],[1,1]]){b.beginPath();b.moveTo(x+dx*18,y+dy*9);b.lineTo(x+dx*18,y+dy*18);b.lineTo(x+dx*9,y+dy*18);b.stroke();}
+    b.drawImage(portraitWoman,190,10,420,630);
+    // Eye focus remains fixed while the background blur responds to aperture.
+    const x=416,y=184;b.strokeStyle='#b7e8d9bc';b.lineWidth=1;
+    for(const [dx,dy]of[[-1,-1],[1,-1],[-1,1],[1,1]]){b.beginPath();b.moveTo(x+dx*18,y+dy*9);b.lineTo(x+dx*18,y+dy*18);b.lineTo(x+dx*9,y+dy*18);b.stroke();}
   }
   function cyclist(x,y,scale=1,alpha=1){
     b.save();b.translate(x,y);b.scale(scale,scale);b.globalAlpha*=alpha;
@@ -408,5 +420,5 @@
   function play(){if(current>=T)current=0;origin=performance.now()-current*1000;playing=true;music.currentTime=current;music.play().catch(()=>{});button.textContent='暂停';}
   button.onclick=()=>playing?pause():play();document.getElementById('restart').onclick=()=>{pause();update(0);play();};seek.oninput=()=>{update(Number(seek.value));music.currentTime=current;if(playing)origin=performance.now()-current*1000;};
   function tick(now){if(playing){const t=(now-origin)/1000;update(Math.min(T,t));if(t>=T)pause();}requestAnimationFrame(tick);}
-  update(0);if(!render)requestAnimationFrame(tick);
+  button.disabled=true;window.ASSETS_READY.then(()=>{button.disabled=false;update(0);if(!render)requestAnimationFrame(tick);});
 })();

@@ -9,7 +9,6 @@
 - 声音：中文神经语音旁白、原创程序合成配乐与音效。
 - 字幕：画面内中文字幕，以及可编辑的 [`subtitles.srt`](output/subtitles.srt)。
 - 封面与关键帧：[`poster.png`](output/poster.png)、[`contact-sheet.png`](output/contact-sheet.png)。
-- 旧版：[`camera-physics-90s.mp4`](output/camera-physics-90s.mp4)，保留最初的 90 秒成像原理版本。
 
 ## 观看
 
@@ -33,7 +32,7 @@
 
 联动示例从 `f/4 · 1/125 s · ISO 100` 出发：开大光圈一档 → 快门加快一档 → 快门再加快两档 → ISO 提高两档。结束时输出亮度回到基准，收集的光只有基准的 1/4。用两个独立指标，说明 ISO 亮度补偿与实际采光的区别。
 
-三个应用场景采用原创分层插画，亮度归一化，只比较虚化、运动痕迹或光轨。片中参数是示例起点，具体现场仍需测光、检查高光和根据机身镜头调整。模型与参考详见 [sources.md](sources.md)。
+三个应用场景采用分层插画，人像前景使用生成的青春洛丽塔风格成年女性肖像，亮度归一化，只比较虚化、运动痕迹或光轨。片中参数是示例起点，具体现场仍需测光、检查高光和根据机身镜头调整。模型与参考详见 [sources.md](sources.md)。
 
 ## 修改与渲染
 
@@ -61,6 +60,7 @@ npm run render
 - `make_audio.py`：中文语音、字幕、原创配乐、音效与语音避让混音。
 - `render.mjs`：关键帧、成像几何和曝光补偿数值检查、4500 帧渲染与完整解码检查。
 - `serve.mjs`：支持字节范围请求的本地播放器服务。
+- `assets/portrait-woman.png`：生成的成年女性人像；提示词与生成方式见同目录说明。
 - `sources.md`：来源与模型的适用范围。
 
 视觉形式参考 [awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) 中的代码解释动画。所有图示、插画与配乐在本项目中重新制作。

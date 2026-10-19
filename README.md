@@ -30,7 +30,7 @@
 | --- | --- | --- | --- | --- |
 | 摄影物理 / 动画讲解 | 150 秒 · 30 fps | 1920 × 1080 · 中英术语、中文字幕 | 中文旁白、原创配乐与音效 | 2026-10-19 |
 
-从小孔与镜头成像进入曝光三角，用同一场景展示光圈、快门与 ISO 逐档联动，同时区分实际采光量和输出亮度。后段应用到人像、运动与夜景，核心术语中英文同屏。原理参考 OpenStax、Nikon、Cambridge in Colour 和 DPReview。
+以火柴人区分小孔倒立成像与镜头对焦，再用同一场景展示光圈、快门与 ISO 逐档联动，同时区分实际采光量和输出亮度。后段应用到人像、运动与夜景，核心术语中英文同屏。原理参考 OpenStax、Nikon、Cambridge in Colour 和 DPReview。
 
 技术：`Canvas 2D` · `JavaScript` · `Python` · `NumPy` · `Playwright` · `FFmpeg` · `edge-tts`
 

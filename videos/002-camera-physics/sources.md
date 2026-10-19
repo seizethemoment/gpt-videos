@@ -7,7 +7,7 @@
 - [Exploratorium — Pringles Pinhole](https://annex.exploratorium.edu/science-explorer/pringles_pinhole.html)：暗盒、针孔与倒立投影实验。
 - [OpenStax — University Physics Volume 3, §2.4 Thin Lenses](https://openstax.org/books/university-physics-volume-3/pages/2-4-thin-lenses)：近轴薄透镜、实像、焦距与成像公式。
 
-小孔段以均匀介质中的直线光路解释上下倒立。镜头段采用 `1/f = 1/u + 1/v`，绘图参数 `f=280、u=555、v≈565.09`。为直接观察合焦关系，图中移动感光面；真实相机通常移动镜组。薄透镜图不是实际摄影镜头的设计图。
+小孔段以火柴人为物体，在均匀介质中的直线光路解释上下倒立；右侧单独画出成像面的正视图。镜头段追踪火柴人头顶同一物点的光线，说明对焦；缩略图显示同一火柴人的倒立像。镜头段采用 `1/f = 1/u + 1/v`，绘图参数 `f=280、u=555、v≈565.09`。为直接观察合焦关系，图中移动感光面；真实相机通常移动镜组。薄透镜图不是实际摄影镜头的设计图。
 
 ## 曝光三角 / Exposure Triangle
 
@@ -60,7 +60,7 @@ f/2.8 为常用显示值；联动计算内部使用 `sqrt(8)`，让 f/4 到 f/2.
 | 运动 Sports | f/2.8 · 1/1000 s · ISO 1600 | 冻结动作，再用光圈和 ISO 配合亮度 |
 | 夜景 Nightscape | f/8 · 4 s · ISO 100 | 三脚架、景深、光轨与高光 |
 
-这些是解释选择顺序的示例起点，不能脱离现场照明、焦距、主体运动和相机能力使用。三幅原创分层插画的亮度已归一化，分别展示背景虚化、运动痕迹和光轨；不宣称是实拍样张。
+这些是解释选择顺序的示例起点，不能脱离现场照明、焦距、主体运动和相机能力使用。三幅分层场景的亮度已归一化，分别展示背景虚化、运动痕迹和光轨；不宣称是实拍样张。
 
 ## 制作参考与工具
 
@@ -68,4 +68,4 @@ f/2.8 为常用显示值；联动计算内部使用 `sqrt(8)`，让 f/4 到 f/2.
 - [Playwright](https://playwright.dev/) 与 [FFmpeg](https://ffmpeg.org/)：逐帧采集与编码。
 - [edge-tts](https://github.com/rany2/edge-tts)：中文语音合成，使用 `zh-CN-YunxiNeural`。
 
-没有复用参考资料的图片、视频或书页。配乐与音效由 NumPy 合成。
+没有复用参考资料的图片、视频或书页。人像前景使用内置 image_gen 生成人物，背景及虚化由 Canvas 绘制；人物是虚构的成年女性。素材与完整提示词在 `assets/`。配乐与音效由 NumPy 合成。
