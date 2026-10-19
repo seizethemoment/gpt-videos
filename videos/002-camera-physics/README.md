@@ -2,71 +2,65 @@
 
 [返回作品集](../../README.md) · [制作提示词](../../prompts/002-camera-physics.md) · [原理参考与图示说明](sources.md)
 
-90 秒中文摄影原理动画：从小孔成像出发，解释镜头对焦、光圈、景深，以及快门怎样记录运动。
+150 秒中文摄影原理动画：由小孔与镜头成像切入，聚焦光圈、快门速度、ISO 怎样配合，最后应用到人像、运动与夜景。保留深色光学实验室、暖金与青色光路的视觉风格，核心术语中英文同屏。
 
-- 成片：[`output/camera-physics-90s.mp4`](output/camera-physics-90s.mp4)
-- 规格：1920 × 1080、16:9、30 fps、90 秒，H.264 / AAC 双声道。
+- 成片：[`output/camera-physics-exposure-triangle.mp4`](output/camera-physics-exposure-triangle.mp4)
+- 规格：1920 × 1080、16:9、30 fps、150 秒，H.264 / AAC 双声道。
 - 声音：中文神经语音旁白、原创程序合成配乐与音效。
 - 字幕：画面内中文字幕，以及可编辑的 [`subtitles.srt`](output/subtitles.srt)。
 - 封面与关键帧：[`poster.png`](output/poster.png)、[`contact-sheet.png`](output/contact-sheet.png)。
+- 旧版：[`camera-physics-90s.mp4`](output/camera-physics-90s.mp4)，保留最初的 90 秒成像原理版本。
 
 ## 观看
 
-打开 MP4，或在本目录运行：
-
-```sh
-npm start
-```
-
-浏览器访问 `http://127.0.0.1:8791/preview.html`。播放器支持进度拖动。离线版 `camera-physics-offline.html` 内嵌视频与封面，下载后可直接双击播放。
+打开 MP4，或在本目录运行 `npm start`，访问 `http://127.0.0.1:8791/preview.html`。播放器支持进度拖动。离线版 `camera-physics-offline.html` 内嵌新版视频与封面，下载后可直接双击播放。
 
 ## 叙事与视觉
 
-采用深色光学实验室的视觉语言：细网格、精细镜片、青色与暖金的光路、流动的光点，以及简洁的大标题。用于比较景深与运动模糊的图像均为本项目绘制的原创示意插画。
-
 | 时间 | 内容 |
 | --- | --- |
-| 00:00–00:08 | 相机与光：提出成像问题 |
-| 00:08–00:22 | 光线穿过小孔，为何上下倒立 |
-| 00:22–00:32 | 孔径、进光量、几何模糊与衍射的取舍 |
-| 00:32–00:46 | 薄透镜会聚与对焦 |
-| 00:46–00:57 | f 数、入瞳直径与光量 |
-| 00:57–01:08 | 离焦光斑与景深 |
-| 01:08–01:22 | 短曝光冻结运动，长曝光累积轨迹 |
-| 01:22–01:30 | 归纳：会聚在哪里、光束多宽、记录多久 |
+| 00:00–00:07 | 光，如何成为照片 |
+| 00:07–00:20 | 小孔倒立成像，镜头会聚光线 |
+| 00:20–00:32 | 曝光三角 Exposure Triangle：三者各司其职 |
+| 00:32–00:46 | 光圈 Aperture：f 数、进光与景深 Depth of Field |
+| 00:46–01:00 | 快门速度 Shutter Speed：冻结动作与运动模糊 Motion Blur |
+| 01:00–01:16 | ISO：增益 Gain、输出亮度、噪点与高光余量 |
+| 01:16–01:40 | 同一场景，逐档联动补偿，同时显示采光量与输出亮度 |
+| 01:40–01:54 | 人像 Portrait：先选择背景虚化 |
+| 01:54–02:08 | 运动 Sports：先冻结动作 |
+| 02:08–02:22 | 夜景 Nightscape：三脚架与长曝光 Long Exposure |
+| 02:22–02:30 | 先选画面效果，再平衡三个参数 |
+
+联动示例从 `f/4 · 1/125 s · ISO 100` 出发：开大光圈一档 → 快门加快一档 → 快门再加快两档 → ISO 提高两档。结束时输出亮度回到基准，收集的光只有基准的 1/4。用两个独立指标，说明 ISO 亮度补偿与实际采光的区别。
+
+三个应用场景采用原创分层插画，亮度归一化，只比较虚化、运动痕迹或光轨。片中参数是示例起点，具体现场仍需测光、检查高光和根据机身镜头调整。模型与参考详见 [sources.md](sources.md)。
 
 ## 修改与渲染
-
-1. 修改 `narration.json` 中的章节和旁白；修改 `animation.js` 中的画面。
-2. 安装渲染依赖。
-3. 按需生成语音与音乐，再逐帧导出。
 
 ```sh
 npm ci
 python3 -m pip install -r requirements.txt
-# 未安装本机 Chrome 时，安装 Playwright Chromium：
+# 未安装本机 Chrome 时：
 npx playwright install chromium
 
-# 仅修改画面时，可以直接使用仓库中现有音轨。
-# 需要重新生成旁白时执行（edge-tts 需要网络）：
+# 修改 narration.json 后重新合成旁白、字幕与音乐（需要网络）：
 python3 make_audio.py --neural
 
 npm run preview
 npm run render
 ```
 
-macOS 也可执行 `python3 make_audio.py`，使用系统 Tingting 语音离线生成旁白。`CHROME_PATH` 可指定浏览器，`FFMPEG_PATH` 可指定 FFmpeg；默认寻找本机 Chrome、Playwright Chromium 和 imageio-ffmpeg。
+仅修改画面时可保留现有音轨。macOS 可用 `python3 make_audio.py` 选择系统 Tingting 语音。`CHROME_PATH` 可指定浏览器，`FFMPEG_PATH` 可指定 FFmpeg；默认寻找本机 Chrome、Playwright Chromium 和 imageio-ffmpeg。
 
-中文使用系统 PingFang SC 或 Noto Sans CJK SC。字体文件未随项目分发；跨系统渲染可能出现少量字体差异。
+中文使用系统 PingFang SC 或 Noto Sans CJK SC，字体未随项目分发。`narration.json` 是时长、分段、旁白和导出文件名的统一入口。
 
 ## 文件
 
-- `animation.js`：纯时间函数 `renderFrame(t)`，8 个动画段落、光路和原创插画。
-- `narration.json`：章节、旁白和时间范围。
-- `narration-data.js`：供浏览器读取的章节与字幕时间数据。
-- `make_audio.py`：语音合成、字幕、原创配乐、音效与语音避让混音。
-- `render.mjs`：关键帧、光学关系检查、2700 帧渲染与视频解码检查。
+- `animation.js`：绝对时间函数 `renderFrame(t)`，11 段动画、光路、曝光模型与原创插画。
+- `narration.json` / `narration-data.js`：章节、旁白、字幕与时间信息。
+- `make_audio.py`：中文语音、字幕、原创配乐、音效与语音避让混音。
+- `render.mjs`：关键帧、成像几何和曝光补偿数值检查、4500 帧渲染与完整解码检查。
 - `serve.mjs`：支持字节范围请求的本地播放器服务。
-- `sources.md`：原理来源和示意图的适用范围。
+- `sources.md`：来源与模型的适用范围。
 
-视觉呈现参考 [awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) 中代码动画与解释类视频的形式，所有画面、图示和配乐在本项目中重新制作。
+视觉形式参考 [awesome-opus5-5-videos](https://github.com/yihui-dev/awesome-opus5-5-videos) 中的代码解释动画。所有图示、插画与配乐在本项目中重新制作。

@@ -69,7 +69,7 @@ def main():
             captions.append({'start':round(pos,3),'end':round(end,3),'text':text})
             pos=end
         metadata.append({'chapter':c['id'],'start':round(start,3),'duration':round(duration,3),'speed':round(ratio,4)})
-        print(f'Narration {i+1}/8: {duration:.2f}s, speed {ratio:.3f}×',flush=True)
+        print(f'Narration {i+1}/{len(SPEC["chapters"])}: {duration:.2f}s, speed {ratio:.3f}×',flush=True)
 
     n=len(voice);music=np.zeros((n,2),dtype=float);fx=np.zeros_like(music)
     rng=np.random.default_rng(20261019)
@@ -85,21 +85,21 @@ def main():
         return sound*(1-np.exp(-t*25))*np.exp(-t*.85)*np.minimum(1,(dur-t)*2)
     # Slow, open chords with a restrained glassy arpeggio.
     chords=[[50,57,62,64,69],[46,53,58,62,65],[53,60,65,69,72],[48,55,60,64,67]]
-    for bar in range(23):
+    for bar in range(int(np.ceil(SPEC['duration']/4))):
         start=bar*4.0;chord=chords[bar%4]
         for i,m in enumerate(chord):put(music,note(m,5.4),start+i*.045,.012,-.45+i*.225)
         for i,m in enumerate([chord[2]+12,chord[3]+12,chord[4]+12,chord[3]+12]):put(music,note(m,2.0),start+i, .007, -.35+(.7 if i%2 else 0))
     # Small transition swells, light strikes, iris detents, and shutter clicks.
-    for at in [7.8,21.8,31.8,45.8,56.8,67.8,81.8]:
+    for at in [c['start']-.2 for c in SPEC['chapters'][1:]]:
         dur=.75;t=np.arange(int(dur*SR))/SR;noise=rng.normal(size=len(t))
         colored=np.convolve(noise,np.ones(23)/23,mode='same')
         put(fx,colored*np.sin(np.pi*t/dur)**2,at-.25,.045,0)
-    for at in [2.8,12.1,18.2,35.7,42.2,51.7,60.2,85.0]:put(fx,note(81 if at<40 else 76,1.6),at,.025,.25)
-    for at in [5.8,69.1,73.0,77.6]:
+    for at in [2.8,16.4,26,37,54,68,81,87,94,108,122,136,146]:put(fx,note(81 if at<76 else 76,1.6),at,.025,.25)
+    for at in [5.8,49,53,57.6,101.1,115.1,129.1]:
         t=np.arange(int(.19*SR))/SR
         click=rng.normal(size=len(t))*np.exp(-t*90)+.24*np.sin(2*np.pi*680*t)*np.exp(-t*45)
         put(fx,click,at,.055,-.15)
-    for at in np.arange(47.9,49.3,.16):
+    for at in np.arange(33.9,35.3,.16):
         t=np.arange(int(.06*SR))/SR
         put(fx,np.sin(2*np.pi*1600*t)*np.exp(-t*130),float(at),.018,.25)
     # Smooth narration-aware music ducking; no effect on narration itself.
@@ -107,9 +107,9 @@ def main():
     power=np.array([np.sqrt(np.mean(voice[i:i+block]**2)) for i in range(0,n,block)])
     gate=np.interp(np.arange(n),np.arange(len(power))*block,(power>.009).astype(float))
     music*= (1-.55*gate)[:,None]
-    combined=music+fx+voice[:,None]*.7071
     time=np.arange(n)/SR
-    combined*= (np.minimum(1,time/1.2)*np.minimum(1,(SPEC['duration']-time)/1.4))[:,None]
+    fade=np.minimum(1,time/1.2)*np.minimum(1,(SPEC['duration']-time)/1.4)
+    combined=(music+fx)*fade[:,None]+voice[:,None]*.7071
     peak=np.max(np.abs(combined))
     if peak>.88:combined*=.88/peak
     rawmaster=TMP/'master.wav';write_wave(rawmaster,combined)

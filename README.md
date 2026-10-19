@@ -8,15 +8,15 @@
 
 ### 002 · 光，如何成为照片
 
-<a href="videos/002-camera-physics/output/camera-physics-90s.mp4"><img src="videos/002-camera-physics/output/poster.png" alt="摄影原理短片封面：深色背景下的精细相机插画，标题为光如何成为照片" width="720"></a>
+<a href="videos/002-camera-physics/output/camera-physics-exposure-triangle.mp4"><img src="videos/002-camera-physics/output/poster.png" alt="摄影原理短片封面：深色背景下的精细相机插画，标题为光如何成为照片" width="720"></a>
 
-**[▶ 观看成片](videos/002-camera-physics/output/camera-physics-90s.mp4)** · [下载 MP4](https://raw.githubusercontent.com/seizethemoment/gpt-videos/main/videos/002-camera-physics/output/camera-physics-90s.mp4) · [提示词](prompts/002-camera-physics.md) · [源码与制作说明](videos/002-camera-physics/) · [原理参考](videos/002-camera-physics/sources.md) · [关键帧](videos/002-camera-physics/output/contact-sheet.png)
+**[▶ 观看成片](videos/002-camera-physics/output/camera-physics-exposure-triangle.mp4)** · [下载 MP4](https://raw.githubusercontent.com/seizethemoment/gpt-videos/main/videos/002-camera-physics/output/camera-physics-exposure-triangle.mp4) · [提示词](prompts/002-camera-physics.md) · [源码与制作说明](videos/002-camera-physics/) · [原理参考](videos/002-camera-physics/sources.md) · [关键帧](videos/002-camera-physics/output/contact-sheet.png)
 
 | 分类 | 时长 | 画面 | 声音 | 日期 |
 | --- | --- | --- | --- | --- |
-| 摄影物理 / 动画讲解 | 90 秒 · 30 fps | 1920 × 1080 · 中文字幕 | 中文旁白、原创配乐与音效 | 2026-10-19 |
+| 摄影物理 / 动画讲解 | 150 秒 · 30 fps | 1920 × 1080 · 中英术语、中文字幕 | 中文旁白、原创配乐与音效 | 2026-10-19 |
 
-用暖金与青色光路串起小孔成像、镜头对焦、光圈、景深与快门。通过离焦光斑和曝光时间内的运动积分，让成像原理看得见。原理参考 OpenStax《大学物理》、Nikon 和 Cambridge in Colour。
+从小孔与镜头成像进入曝光三角，用同一场景展示光圈、快门与 ISO 逐档联动，同时区分实际采光量和输出亮度。后段应用到人像、运动与夜景，核心术语中英文同屏。原理参考 OpenStax、Nikon、Cambridge in Colour 和 DPReview。
 
 技术：`Canvas 2D` · `JavaScript` · `Python` · `NumPy` · `Playwright` · `FFmpeg` · `edge-tts`
 

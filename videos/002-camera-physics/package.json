@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "A narrated 90-second visual introduction to photographic optics.",
+  "description": "A 150-second narrated film about image formation, the exposure triangle and photographic applications.",
   "scripts": {"start":"node serve.mjs","preview":"node render.mjs --preview","render":"node render.mjs"},
   "devDependencies": {"playwright":"1.62.1"}
 }
