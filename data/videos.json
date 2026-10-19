@@ -37,5 +37,46 @@
       "browser_playback": "passed",
       "seeking": "passed"
     }
+  },
+  {
+    "id": "002",
+    "slug": "camera-physics",
+    "title": "光，如何成为照片",
+    "category": "explainer",
+    "description": "90 秒中文摄影原理动画：小孔成像、孔径与衍射、薄透镜对焦、光圈、景深与快门。",
+    "created": "2026-10-19",
+    "duration_seconds": 90,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "tech_tags": [
+      "Canvas 2D",
+      "JavaScript",
+      "Python",
+      "NumPy",
+      "Playwright",
+      "FFmpeg",
+      "edge-tts"
+    ],
+    "video": "videos/002-camera-physics/output/camera-physics-90s.mp4",
+    "poster": "videos/002-camera-physics/output/poster.png",
+    "contact_sheet": "videos/002-camera-physics/output/contact-sheet.png",
+    "offline_preview": "videos/002-camera-physics/camera-physics-offline.html",
+    "captions": "videos/002-camera-physics/output/subtitles.srt",
+    "prompt": "prompts/002-camera-physics.md",
+    "source": "videos/002-camera-physics",
+    "reference": {
+      "collection": "https://github.com/yihui-dev/awesome-opus5-5-videos",
+      "sources": "videos/002-camera-physics/sources.md",
+      "textbook": "https://openstax.org/books/university-physics-volume-3/pages/2-4-thin-lenses"
+    },
+    "audio": "Chinese neural narration (zh-CN-YunxiNeural), original procedural music and effects",
+    "validation": {
+      "frames": 2700,
+      "optical_geometry": "passed",
+      "decode": "passed",
+      "browser_playback": "passed",
+      "seeking": "passed"
+    }
   }
 ]

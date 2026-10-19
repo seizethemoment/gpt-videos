@@ -1,0 +1,9 @@
+{
+  "name": "camera-physics-film",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A narrated 90-second visual introduction to photographic optics.",
+  "scripts": {"start":"node serve.mjs","preview":"node render.mjs --preview","render":"node render.mjs"},
+  "devDependencies": {"playwright":"1.62.1"}
+}

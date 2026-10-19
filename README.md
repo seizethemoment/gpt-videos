@@ -2,9 +2,23 @@
 
 用 GPT / Codex 通过代码制作的视频作品集。每个作品保存成片、封面、提示词、动画源码和渲染方法，方便观看、修改与继续创作。
 
-当前收录 **1 个作品**，从一杯 Negroni 开始。
+当前收录 **2 个作品**：从一杯 Negroni，到相机里的光与时间。
 
 ## 作品
+
+### 002 · 光，如何成为照片
+
+<a href="videos/002-camera-physics/output/camera-physics-90s.mp4"><img src="videos/002-camera-physics/output/poster.png" alt="摄影原理短片封面：深色背景下的精细相机插画，标题为光如何成为照片" width="720"></a>
+
+**[▶ 观看成片](videos/002-camera-physics/output/camera-physics-90s.mp4)** · [下载 MP4](https://raw.githubusercontent.com/seizethemoment/gpt-videos/main/videos/002-camera-physics/output/camera-physics-90s.mp4) · [提示词](prompts/002-camera-physics.md) · [源码与制作说明](videos/002-camera-physics/) · [原理参考](videos/002-camera-physics/sources.md) · [关键帧](videos/002-camera-physics/output/contact-sheet.png)
+
+| 分类 | 时长 | 画面 | 声音 | 日期 |
+| --- | --- | --- | --- | --- |
+| 摄影物理 / 动画讲解 | 90 秒 · 30 fps | 1920 × 1080 · 中文字幕 | 中文旁白、原创配乐与音效 | 2026-10-19 |
+
+用暖金与青色光路串起小孔成像、镜头对焦、光圈、景深与快门。通过离焦光斑和曝光时间内的运动积分，让成像原理看得见。原理参考 OpenStax《大学物理》、Nikon 和 Cambridge in Colour。
+
+技术：`Canvas 2D` · `JavaScript` · `Python` · `NumPy` · `Playwright` · `FFmpeg` · `edge-tts`
 
 ### 001 · NEGRONI — 三味等份，一杯经典
 
@@ -45,6 +59,7 @@ gpt-videos/
 ├── data/videos.json           # 结构化作品信息
 ├── prompts/                   # 每个作品的制作提示词
 └── videos/
+    ├── 002-camera-physics/    # 摄影物理原理短片
     └── 001-negroni/
         ├── README.md          # 配方、时间轴、渲染步骤与来源
         ├── animation.js       # 动画绘制
@@ -59,8 +74,8 @@ gpt-videos/
 
 ## 添加下一条视频
 
-1. 在 `videos/` 下创建递增编号的目录，例如 `002-your-title/`，保存源码、说明与成片。
-2. 将制作提示词保存到 `prompts/002-your-title.md`。
+1. 在 `videos/` 下创建递增编号的目录，例如 `003-your-title/`，保存源码、说明与成片。
+2. 将制作提示词保存到 `prompts/003-your-title.md`。
 3. 在 `data/videos.json` 追加作品信息，使用相对于仓库根目录的资源路径。
 4. 在本页增加封面、视频入口与作品规格，并更新作品数量。
 

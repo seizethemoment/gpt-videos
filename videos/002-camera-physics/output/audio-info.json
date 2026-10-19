@@ -1,0 +1,55 @@
+{
+  "narrator": "edge-tts / zh-CN-YunxiNeural",
+  "music": "Original procedural composition",
+  "duration": 90,
+  "chapters": [
+    {
+      "chapter": "intro",
+      "start": 0.6,
+      "duration": 6.679,
+      "speed": 1.0316
+    },
+    {
+      "chapter": "pinhole",
+      "start": 8.6,
+      "duration": 9.891,
+      "speed": 1
+    },
+    {
+      "chapter": "tradeoff",
+      "start": 22.6,
+      "duration": 8.681,
+      "speed": 1.1559
+    },
+    {
+      "chapter": "lens",
+      "start": 32.6,
+      "duration": 11.403,
+      "speed": 1
+    },
+    {
+      "chapter": "aperture",
+      "start": 46.6,
+      "duration": 9.683,
+      "speed": 1.1085
+    },
+    {
+      "chapter": "dof",
+      "start": 57.6,
+      "duration": 9.684,
+      "speed": 1.1456
+    },
+    {
+      "chapter": "shutter",
+      "start": 68.6,
+      "duration": 12.219,
+      "speed": 1
+    },
+    {
+      "chapter": "recap",
+      "start": 82.6,
+      "duration": 6.68,
+      "speed": 1.0567
+    }
+  ]
+}
