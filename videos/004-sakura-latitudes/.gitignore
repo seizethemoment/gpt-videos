@@ -1,0 +1,5 @@
+node_modules
+output/music.caf
+output/ambience.wav
+output/chapters.ffmetadata
+output/proof-*.png

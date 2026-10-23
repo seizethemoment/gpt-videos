@@ -1,0 +1,66 @@
+[
+  {
+    "file": "assets/01-quyuan.png",
+    "bytes": 3339789,
+    "width": 1672,
+    "height": 941,
+    "sha256": "ff18c683a2a46344ffeddc22c8e399fc29226bf20b2bb86a1698386af1ed5b1a",
+    "creation": "Built-in image_gen; original illustration based on location reference photos"
+  },
+  {
+    "file": "assets/02-liangzhu.png",
+    "bytes": 2801807,
+    "width": 1672,
+    "height": 941,
+    "sha256": "b8ef63cd414038b5133278de662b25b6ce7919d480c4b885ac4e245cc2e4e2c8",
+    "creation": "Built-in image_gen; original illustration based on location reference photos"
+  },
+  {
+    "file": "assets/03-shanghai.png",
+    "bytes": 3321963,
+    "width": 1672,
+    "height": 941,
+    "sha256": "50ddf6a62d16a3d78e0028a1342d2487f57b36d259a964c9e168a2af4f5be099",
+    "creation": "Built-in image_gen; original illustration based on location reference photos"
+  },
+  {
+    "file": "assets/04-nanjing.png",
+    "bytes": 3569675,
+    "width": 1672,
+    "height": 941,
+    "sha256": "814b30afcbedcc790fd04bbf9b9421e323c2f896bc62095e9eb14ae26041788a",
+    "creation": "Built-in image_gen; original illustration based on location reference photos"
+  },
+  {
+    "file": "assets/05-tokyo.png",
+    "bytes": 3788348,
+    "width": 1983,
+    "height": 793,
+    "sha256": "5ae598f2552cab52592ff9c965fffee6058c2c9e168f8612001602341e4ad8b6",
+    "creation": "Built-in image_gen; original illustration based on location reference photos"
+  },
+  {
+    "file": "assets/06-dalian.png",
+    "bytes": 3853681,
+    "width": 1672,
+    "height": 941,
+    "sha256": "1b6b3968adf5427efab9390cbb47b2e0217303242d16252542b3ec74c6cf197e",
+    "creation": "Built-in image_gen; original illustration based on location reference photos"
+  },
+  {
+    "file": "assets/07-washington.png",
+    "bytes": 3152479,
+    "width": 1983,
+    "height": 793,
+    "sha256": "ac346f73f73e5d5826ed993892d7ac6a84320c2bc57ba65062b212665b2a6de5",
+    "creation": "Built-in image_gen; original illustration based on location reference photos"
+  },
+  {
+    "file": "assets/08-vancouver.png",
+    "bytes": 3476786,
+    "width": 1672,
+    "height": 941,
+    "sha256": "947319776717d65b76d358cf1458a01ca5cc23ee741191d0692f961204bd6343",
+    "creation": "Built-in image_gen; original illustration based on location reference photos"
+  }
+]

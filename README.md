@@ -2,9 +2,23 @@
 
 用 GPT / Codex 通过代码制作的视频作品集。每个作品保存成片、封面、提示词、动画源码和渲染方法，方便观看、修改与继续创作。
 
-当前收录 **3 个作品**：从一杯 Negroni，到相机里的光与时间，再到林克与塞尔达的华尔兹。
+当前收录 **4 个作品**：调酒、摄影物理、林克与塞尔达的华尔兹，以及一段由南向北的春日樱花旅行。
 
 ## 作品
+
+### 004 · 樱落，向北
+
+<a href="videos/004-sakura-latitudes/output/sakura-latitudes-96s.mp4"><img src="videos/004-sakura-latitudes/output/poster.png" alt="日漫风春日西湖水榭与飘落樱花，标题樱落向北" width="720"></a>
+
+**[▶ 观看成片](videos/004-sakura-latitudes/output/sakura-latitudes-96s.mp4)** · [下载 MP4](https://raw.githubusercontent.com/seizethemoment/gpt-videos/main/videos/004-sakura-latitudes/output/sakura-latitudes-96s.mp4) · [本地播放器](videos/004-sakura-latitudes/preview.html) · [提示词](prompts/004-sakura-latitudes.md) · [B 站发布文案](videos/004-sakura-latitudes/README.md#b-站发布文案) · [源码与制作说明](videos/004-sakura-latitudes/) · [逐站图片与视频参考](videos/004-sakura-latitudes/sources.md) · [八站关键帧](videos/004-sakura-latitudes/output/contact-sheet.png)
+
+| 分类 | 时长 | 画面 | 声音 | 日期 |
+| --- | --- | --- | --- | --- |
+| 日漫绘景 / 春日旅行 | 96 秒 · 24 fps | 1920 × 1080 · 八站中英地名与纬度 | 原创钢琴、弦乐与春日环境声 | 2026-10-20 |
+
+从杭州曲院风荷、良渚大屋顶出发，按景点约略纬度串联上海顾村、南京鸡鸣寺、东京千鸟渊、大连龙王塘、华盛顿潮汐湖与温哥华伊丽莎白女王公园。八幅实景参考的 AI 日漫绘景，结合分层花瓣、慢推镜、水面微动与柔和转场。每站标注名称与纬度；地图位置和景观为艺术化重构。
+
+技术：`imagegen` · `Three.js` · `Canvas 2D` · `JavaScript` · `Python / NumPy` · `Swift / AVAudioEngine` · `Playwright` · `FFmpeg`
 
 ### 003 · 旷野之舞 · Hyrule Waltz
 
@@ -73,6 +87,7 @@ gpt-videos/
 ├── data/videos.json           # 结构化作品信息
 ├── prompts/                   # 每个作品的制作提示词
 └── videos/
+    ├── 004-sakura-latitudes/ # 八站樱花日漫绘景短片
     ├── 003-hyrule-waltz/      # 林克与塞尔达华尔兹同人短片
     ├── 002-camera-physics/    # 摄影物理原理短片
     └── 001-negroni/
@@ -89,8 +104,8 @@ gpt-videos/
 
 ## 添加下一条视频
 
-1. 在 `videos/` 下创建递增编号的目录，例如 `004-your-title/`，保存源码、说明与成片。
-2. 将制作提示词保存到 `prompts/004-your-title.md`。
+1. 在 `videos/` 下创建递增编号的目录，例如 `005-your-title/`，保存源码、说明与成片。
+2. 将制作提示词保存到 `prompts/005-your-title.md`。
 3. 在 `data/videos.json` 追加作品信息，使用相对于仓库根目录的资源路径。
 4. 在本页增加封面、视频入口与作品规格，并更新作品数量。
 

@@ -1,0 +1,115 @@
+{
+  "film": {
+    "title": "樱落，向北",
+    "subtitle": "秒速五厘米的春日旅行",
+    "duration": 96,
+    "fps": 24,
+    "width": 1920,
+    "height": 1080,
+    "sceneLength": 12,
+    "route": "按景点约略纬度，由南向北 · 30.25°N — 49.24°N"
+  },
+  "locations": [
+    {
+      "index": 1,
+      "place": "杭州 · 曲院风荷",
+      "latitude": 30.25,
+      "longitude": 120.13,
+      "start": 0,
+      "end": 12
+    },
+    {
+      "index": 2,
+      "place": "杭州 · 良渚大屋顶",
+      "latitude": 30.37,
+      "longitude": 120.03,
+      "start": 12,
+      "end": 24
+    },
+    {
+      "index": 3,
+      "place": "上海 · 顾村公园",
+      "latitude": 31.35,
+      "longitude": 121.37,
+      "start": 24,
+      "end": 36
+    },
+    {
+      "index": 4,
+      "place": "南京 · 鸡鸣寺",
+      "latitude": 32.06,
+      "longitude": 118.79,
+      "start": 36,
+      "end": 48
+    },
+    {
+      "index": 5,
+      "place": "日本 · 东京 · 千鸟渊",
+      "latitude": 35.69,
+      "longitude": 139.75,
+      "start": 48,
+      "end": 60
+    },
+    {
+      "index": 6,
+      "place": "大连 · 龙王塘樱花园",
+      "latitude": 38.84,
+      "longitude": 121.4,
+      "start": 60,
+      "end": 72
+    },
+    {
+      "index": 7,
+      "place": "美国 · 华盛顿 · 潮汐湖",
+      "latitude": 38.88,
+      "longitude": -77.04,
+      "start": 72,
+      "end": 84
+    },
+    {
+      "index": 8,
+      "place": "加拿大 · 温哥华 · 伊丽莎白女王公园",
+      "latitude": 49.24,
+      "longitude": -123.11,
+      "start": 84,
+      "end": 96
+    }
+  ],
+  "frames": 2304,
+  "browser_errors": [],
+  "checks": {
+    "latitude_order": "passed",
+    "deterministic": true,
+    "full_decode": "passed",
+    "streams": [
+      "  Duration: 00:01:36.00, start: 0.000000, bitrate: 6559 kb/s",
+      "  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 6296 kb/s, 24 fps, 24 tbr, 12288 tbn (default)",
+      "  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 257 kb/s (default)",
+      "  Stream #0:2[0x3](eng): Data: bin_data (text / 0x74786574), 0 kb/s",
+      "Stream mapping:",
+      "  Stream #0:0 -> #0:0 (h264 (native) -> wrapped_avframe (native))",
+      "  Stream #0:1 -> #0:1 (aac (native) -> pcm_s16le (native))",
+      "  Stream #0:0(und): Video: wrapped_avframe, yuv420p(tv, bt709/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 200 kb/s, 24 fps, 24 tbn (default)",
+      "  Stream #0:1(und): Audio: pcm_s16le, 48000 Hz, stereo, s16, 1536 kb/s (default)",
+      "frame=  298 fps=0.0 q=-0.0 size=N/A time=00:00:12.41 bitrate=N/A speed=24.8x    \rframe=  673 fps=671 q=-0.0 size=N/A time=00:00:28.04 bitrate=N/A speed=27.9x    \rframe=  998 fps=661 q=-0.0 size=N/A time=00:00:41.58 bitrate=N/A speed=27.5x    \rframe= 1309 fps=650 q=-0.0 size=N/A time=00:00:54.54 bitrate=N/A speed=27.1x    \rframe= 1639 fps=651 q=-0.0 size=N/A time=00:01:08.29 bitrate=N/A speed=27.1x    \rframe= 1998 fps=662 q=-0.0 size=N/A time=00:01:23.25 bitrate=N/A speed=27.6x    \r[out#0/null @ 0x7f86a4908440] video:990KiB audio:18000KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown",
+      "frame= 2304 fps=668 q=-0.0 Lsize=N/A time=00:01:36.00 bitrate=N/A speed=27.8x    "
+    ],
+    "browser_playback": "passed",
+    "chapter_seeking": "passed",
+    "range": "passed",
+    "reference_catalogue": "passed",
+    "audio_peak_dbfs": -4.6,
+    "audio_mean_dbfs": -20.2
+  },
+  "size_bytes": 78718555,
+  "encoding": {
+    "codec": "H.264",
+    "preset": "slow",
+    "crf": 19,
+    "maxrate_kbps": 7500,
+    "buffer_kbps": 15000,
+    "audio": "AAC 256k / 48kHz stereo",
+    "faststart": true
+  },
+  "sha256": "8173bf685a704d6e36d662cd2319418c75333d56e5c60f4c27bf93ff5c07c679"
+}

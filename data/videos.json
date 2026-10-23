@@ -124,5 +124,54 @@
       "max_shared_wrist_distance_m": 0.04197,
       "facial_animation": "turn smile and nine skeletal eyelid blinks"
     }
+  },
+  {
+    "id": "004",
+    "slug": "sakura-latitudes",
+    "title": "樱落，向北 · 秒速五厘米的春日旅行",
+    "category": "anime-landscape",
+    "description": "96 秒日漫绘景短片，按景点约略纬度串联杭州曲院风荷、良渚大屋顶、上海顾村、南京鸡鸣寺、东京千鸟渊、大连龙王塘、华盛顿潮汐湖与温哥华伊丽莎白女王公园。逐站中英标注、分层落樱、慢推镜与原创配乐。",
+    "created": "2026-10-20",
+    "duration_seconds": 96,
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "tech_tags": [
+      "imagegen",
+      "Three.js",
+      "Canvas 2D",
+      "JavaScript",
+      "Python",
+      "NumPy",
+      "Swift",
+      "AVAudioEngine",
+      "Playwright",
+      "FFmpeg"
+    ],
+    "video": "videos/004-sakura-latitudes/output/sakura-latitudes-96s.mp4",
+    "poster": "videos/004-sakura-latitudes/output/poster.png",
+    "contact_sheet": "videos/004-sakura-latitudes/output/contact-sheet.png",
+    "preview": "videos/004-sakura-latitudes/preview.html",
+    "prompt": "prompts/004-sakura-latitudes.md",
+    "publishing_copy": "videos/004-sakura-latitudes/README.md#b-站发布文案",
+    "source": "videos/004-sakura-latitudes",
+    "reference": {
+      "sources": "videos/004-sakura-latitudes/sources.md",
+      "page": "videos/004-sakura-latitudes/references.html"
+    },
+    "audio": "Original 96-second D-major spring nocturne; 80 BPM; piano, harp, strings, flute and cello; synthesized breeze and birds",
+    "route_basis": "Approximate latitude ascending, not annual bloom chronology",
+    "quality_note": "Original anime-inspired painted backgrounds and procedural motion; artistic reconstruction of real locations",
+    "validation": {
+      "frames": 2304,
+      "report": "videos/004-sakura-latitudes/output/render-report.json",
+      "decode": "passed",
+      "browser_playback": "passed",
+      "seeking": "passed",
+      "latitude_order": "passed",
+      "deterministic": "passed",
+      "reference_links": 28
+    },
+    "size_bytes": 78718555
   }
 ]
